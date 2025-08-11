@@ -1,0 +1,36 @@
+function isAnagram(s, t) {
+        s = s.trim();
+        t = t.trim();
+        if(!s || !t || s.length !== t.length) return false;
+
+        // if the length matches. character validation
+
+        // count of the character s and t
+  
+        let map = {};      
+        for(let i=0; i < s.length; i++){
+          map[s[i]] = (map[s[i]] || 0) + 1
+        }
+
+        for(let j = 0; j < t.length ; j++){
+          if(map.hasOwnProperty(t[j])){ 
+            if(map[t[j]] <= 1){
+              delete map[t[j]]
+            } else {
+              map[t[j]] -= 1;
+            }
+          } else {
+            return false
+          }
+        }
+
+        return true
+    }
+
+
+let firstWord = "bbcc";
+let secondWord = "ccbc"
+
+
+
+console.log(isAnagram(firstWord, secondWord))
