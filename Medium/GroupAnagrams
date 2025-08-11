@@ -1,0 +1,22 @@
+function groupAnagrams(strs) {
+    let map = new Map();
+
+    for(let str of strs){
+      let key = str.split('').sort().join('');
+
+      if(!map.has(key)){
+        map.set(key, []);
+      }
+      console.log(map)
+      map.get(key).push(str)
+    }
+
+  return Array.from(map.values());
+}
+
+
+
+let strList = ["act", "pots", "tops", "cat", "stop", "hat"];
+
+
+console.log(groupAnagrams(strList));
