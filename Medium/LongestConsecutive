@@ -1,0 +1,31 @@
+class Solution {
+  longestConsecutive(nums) {
+    if(!nums || nums.length <= 0) return [];
+    let sortedArr = [... new Set(nums.sort((a,b) => a - b))];
+    let maxCount = 1;
+    let tempCount = 1;
+    let p1 = 0;
+
+    for(let p2 = 1; p2 < sortedArr.length; p2++){
+      if(sortedArr[p1] + 1 == sortedArr[p2]){
+          tempCount += 1;
+      } else {
+          tempCount = 1;
+      }
+      maxCount = Math.max(maxCount, tempCount)
+      p1++;
+    }
+    
+    return maxCount;
+  }
+}
+
+
+let solution = new Solution();
+
+let nums = [0,3,2,5,4,6,1,1]
+
+
+
+
+console.log(solution.longestConsecutive(nums))
