@@ -1,0 +1,25 @@
+class Solution {
+    /**
+     * @param {string[]} strs
+     * @returns {string}
+     */
+    encode(strs) {
+          return btoa(strs)
+    }
+
+    /**
+     * @param {string} str
+     * @returns {string[]}
+     */
+    decode(str) {
+        return atob(str).split(',')
+    }
+}
+
+
+let solution = new Solution();
+
+let arr = ["neet","code","love","you"]
+
+console.log(solution.encode(arr))
+console.log(solution.decode('bmVldCxjb2RlLGxvdmUseW91'))
