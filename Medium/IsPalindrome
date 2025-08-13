@@ -1,0 +1,31 @@
+class Solution {
+  isPalindrome(s) {
+    let specialCharacter = `!@#$%^&*()_+=-[]{};:'"<>?/.,|`;
+    let sortedVal = [];
+
+    for(let char=0; char <= s.length - 1; char++){
+        if(!specialCharacter.includes(s[char]) && s[char] != ' '){
+          sortedVal.push(s[char])
+        }
+    }
+
+    sortedVal = sortedVal.join('').toLowerCase()
+
+    let p1 = 0;
+    for(let p2= sortedVal.length - 1; p2 >= 0; p2--){
+        if(sortedVal[p1] !== sortedVal[p2]){
+          return false
+        }
+
+        p1++;
+    }
+
+    return true;
+  }
+}
+
+let solution = new Solution();
+
+let s = "Was it a car or a cat I saw?";
+
+console.log(solution.isPalindrome(s));
